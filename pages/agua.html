@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="icon" type="image/svg" href="../images/favicon.png">
+    <title>MalhaVital - Água</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="../images/logoh.png" alt="MalhaVital Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="treinos.html">Treinos</a></li>
+                <li><a href="imc.html">IMC</a></li>
+                <li><a href="agua.html">Água</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo da Página Água -->
+    <div class="content">
+        <div class="gradient-bar"></div>
+        <h2>Calculadora de Ingestão Diária de Água</h2>
+        
+        <div class="water-calculator">
+            <label for="weightWater">Peso (kg):</label>
+            <input type="number" id="weightWater" step="0.1" required>
+
+            <button onclick="calculateWaterIntake()">Calcular Ingestão Diária de Água</button>
+
+            <div id="waterResult"></div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2023 MalhaVital. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para a Calculadora de Água -->
+    <script>
+        function calculateWaterIntake() {
+            var weightWater = document.getElementById('weightWater').value;
+
+            if (weightWater) {
+                var waterIntake = weightWater * 30; // Valor aproximado, pode variar
+                displayWaterResult(waterIntake);
+            } else {
+                alert('Por favor, preencha o peso.');
+            }
+        }
+
+        function displayWaterResult(waterIntake) {
+            var resultContainer = document.getElementById('waterResult');
+            resultContainer.innerHTML = `<p>Sua ingestão diária recomendada de água é: ${waterIntake.toFixed(2)} ml.</p>`;
+        }
+    </script>
+</body>
+</html>

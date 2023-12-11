@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="icon" type="image/svg" href="../images/favicon.png">
+    <title>MalhaVital - IMC</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="../images/logoh.png" alt="MalhaVital Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="treinos.html">Treinos</a></li>
+                <li><a href="imc.html">IMC</a></li>
+                <li><a href="agua.html">Água</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo da Página IMC -->
+    <div class="content">
+        <div class="gradient-bar"></div>
+        <h2>Calculadora de IMC</h2>
+        
+        <div class="imc-calculator">
+            <label for="height">Altura (m):</label>
+            <input type="number" id="height" step="0.01" required>
+
+            <label for="weight">Peso (kg):</label>
+            <input type="number" id="weight" step="0.1" required>
+
+            <button onclick="calculateIMC()">Calcular IMC</button>
+
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2023 MalhaVital. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para a Calculadora de IMC -->
+    <script>
+        function calculateIMC() {
+            var height = document.getElementById('height').value;
+            var weight = document.getElementById('weight').value;
+
+            if (height && weight) {
+                var imc = weight / (height * height);
+                displayResult(imc);
+            } else {
+                alert('Por favor, preencha altura e peso.');
+            }
+        }
+
+        function displayResult(imc) {
+            var resultContainer = document.getElementById('result');
+            var category;
+
+            if (imc < 18.5) {
+                category = 'Abaixo do Peso';
+            } else if (imc < 24.9) {
+                category = 'Peso Normal';
+            } else if (imc < 29.9) {
+                category = 'Sobrepeso';
+            } else {
+                category = 'Obesidade';
+            }
+
+            resultContainer.innerHTML = `<p>Seu IMC é: ${imc.toFixed(2)}</p><p>Categoria: ${category}</p>`;
+        }
+    </script>
+</body>
+</html>

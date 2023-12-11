@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="icon" type="image/svg" href="../images/favicon.png">
+    <title>MalhaVital - Treinos</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="../images/logoh.png" alt="MalhaVital Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="treinos.html">Treinos</a></li>
+                <li><a href="imc.html">IMC</a></li>
+                <li><a href="agua.html">Água</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo da Página Treinos -->
+    <div class="content">
+        <div class="gradient-bar"></div>
+        <h2>Escolha Seu Treino</h2>
+
+        <!-- Treinos para Mulheres -->
+        <div class="workout-container">
+            <h3>Treinos para Mulheres</h3>
+            <button onclick="showWorkout('mulher1')">Treino 1</button>
+            <button onclick="showWorkout('mulher2')">Treino 2</button>
+            <button onclick="showWorkout('mulher3')">Treino 3</button>
+            <button onclick="showWorkout('mulher4')">Treino 4</button>
+        </div>
+
+        <!-- Treinos para Homens -->
+        <div class="workout-container">
+            <h3>Treinos para Homens</h3>
+            <button onclick="showWorkout('homem1')">Treino 1</button>
+            <button onclick="showWorkout('homem2')">Treino 2</button>
+            <button onclick="showWorkout('homem3')">Treino 3</button>
+            <button onclick="showWorkout('homem4')">Treino 4</button>
+        </div>
+
+        <!-- Treinos de Corrida -->
+        <div class="workout-container">
+            <h3>Treinos de Corrida</h3>
+            <button onclick="showWorkout('corridaMulher')">Corrida para Mulheres</button>
+            <button onclick="showWorkout('corridaHomem')">Corrida para Homens</button>
+        </div>
+
+        <!-- Exibição do Texto do Treino -->
+        <div id="workoutText"></div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2023 MalhaVital. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para Exibir Texto do Treino -->
+    <script>
+        function showWorkout(workoutType) {
+            var workoutTextContainer = document.getElementById('workoutText');
+            var workoutText;
+
+            switch (workoutType) {
+                case 'mulher1':
+                    workoutText = "Treino para Mulheres 1: Exercícios focados em tonificação e resistência.";
+                    break;
+                case 'mulher2':
+                    workoutText = "Treino para Mulheres 2: Exercícios para fortalecimento e flexibilidade.";
+                    break;
+                case 'mulher3':
+                    workoutText = "Treino para Mulheres 3: Cardiovascular e treino funcional.";
+                    break;
+                case 'mulher4':
+                    workoutText = "Treino para Mulheres 4: Treino de alta intensidade para queima de calorias.";
+                    break;
+                case 'homem1':
+                    workoutText = "Treino para Homens 1: Treino de força e hipertrofia.";
+                    break;
+                case 'homem2':
+                    workoutText = "Treino para Homens 2: Treino de resistência e flexibilidade.";
+                    break;
+                case 'homem3':
+                    workoutText = "Treino para Homens 3: Treino de potência e explosão muscular.";
+                    break;
+                case 'homem4':
+                    workoutText = "Treino para Homens 4: Treino de alta intensidade para ganho de massa muscular.";
+                    break;
+                case 'corridaMulher':
+                    workoutText = "Treino de Corrida para Mulheres: Treino para melhoria da resistência e velocidade.";
+                    break;
+                case 'corridaHomem':
+                    workoutText = "Treino de Corrida para Homens: Treino para aumento da resistência e performance.";
+                    break;
+                default:
+                    workoutText = "Selecione um treino válido.";
+                    break;
+            }
+
+            workoutTextContainer.innerHTML = "<p>" + workoutText + "</p>";
+        }
+    </script>
+</body>
+</html>
